@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="static/js/tailwind.js"></script>
+  <script src="static/js/app.js"></script>
+  <title>FCFS Scheduling Simulator</title>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-4 text-center">FCFS CPU Scheduling Simulator</h1>
+
+    <!-- Output Table -->
+    <div class="overflow-x-auto">
+      <table id="process-table" class="m-auto bg-white mb-6">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Process ID <button onclick="sortTable('pid')">🔃</button></th>
+            <th class="px-4 py-2">Arrival Time <button onclick="sortTable('arrival_time')">🔃</button></th>
+            <th class="px-4 py-2">Burst Time <button onclick="sortTable('burst_time')">🔃</button></th>
+            <th class="px-4 py-2">Completion Time <button onclick="sortTable('completion_time')">🔃</button></th>
+            <th class="px-4 py-2">Turn Around Time <button onclick="sortTable('turnaround_time')">🔃</button></th>
+            <th class="px-4 py-2">Waiting Time <button onclick="sortTable('waiting_time')">🔃</button></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Average Table -->
+    <div class="flex justify-center mb-6">
+      <table id="average-table" class="w-1/4 bg-white">
+        <tbody>
+          <tr>
+            <td class="px-4 py-2 font-semibold">Average Turn Around Time:</td>
+            <td class="px-4 py-2" id="avg-tat"></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 font-semibold">Average Waiting Time:</td>
+            <td class="px-4 py-2" id="avg-wait"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Input Form -->
+    <div class="bg-white p-4 rounded shadow mb-4 w-1/4 mx-auto">
+      <div class="flex justify-center space-x-4">
+        <div>
+          <label class="block">Arrival Time</label>
+          <input type="number" id="arrival-time" class="border p-2 rounded w-full" />
+        </div>
+        <div>
+          <label class="block">Burst Time</label>
+          <input type="number" id="burst-time" class="border p-2 rounded w-full" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-center space-x-4">
+      <button id="add-btn" class="bg-blue-500 text-white font-bold px-4 py-2 rounded">Add</button>
+      <button id="clear-btn" class="bg-red-500 text-white font-bold px-4 py-2 rounded">Clear</button>
+      <button id="start-btn" class="bg-green-500 text-white font-bold px-4 py-2 rounded">Start FCFS</button>
+    </div>
+  </div>
+</body>
+</html>
