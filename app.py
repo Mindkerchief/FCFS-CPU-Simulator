@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 
 app = Flask(__name__)
-# In-memory list to store processes
+
 to_process = []
 
 @app.route('/')
